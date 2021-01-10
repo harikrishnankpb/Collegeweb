@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form action="tregister" method="POST">
+    {%csrf_token%}
+    <input type="text" placeholder="Name" name="name"><br>
+    <input type="email" placeholder="Email" name="email"><br>
+    <input type="text" placeholder="Subject" name="subject"><br>
+    <input type="text" placeholder="User name" name="username" required="required"><br>
+    <input type="password" required="required" placeholder="Password" name="password1"><br>
+    <input type="password" placeholder=" Conform Password" name="password2"><br>
+    <input type="submit" >
+</form>    
+<a href="/">Home</a>
+{%for message in messages%}
+{{message}}
+{%endfor%}
+</body>
+</html>

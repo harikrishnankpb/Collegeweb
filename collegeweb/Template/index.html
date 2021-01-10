@@ -58,17 +58,35 @@
                                         <li><a href="#">Gallery</a></li>
                                         <li><a href="#">Referance</a></li>
                                         <li><a href="about.html">About us</a></li>
-                                        <li><a href="#">Register</a></li>
-                                        <li><a href="#">Login</a></li>
+                                        <!-- <li><a href="#">Register</a></li> -->
+                                        <!-- If User is authenticated -->
+                                        {%if user.is_authenticated%}
+                                        <li><a href="accounts/logout">Logout</a></li>
+                                        {%else%}
+                                        <li class="dropdown hassubmenu" style="border: 0px;outline: 0px;">
+                                            <a href="#" data-toggle="dropdown" role="button"
+                                                aria-expanded="false">Register <span
+                                                    class="fa fa-angle-down"></span></a>
+                                            <ul style="background:transparent;size: 500px;" class="dropdown-menu"
+                                                role="menu">
+                                                &nbsp;
+                                                <li style="color: blue;"><a href="sregister.html">As a student</a></li>
+                                                &nbsp;
+                                                <li style="color:white;"><a href="accounts/tregister">As a teacher</a>
+                                                </li>
+                                            </ul>
+                                        </li>
 
-
+                                        <li><a href="accounts/login">Login</a></li>
+                                        {%endif%}
+                                        <!-- dropdown  -->
 
                                         <!-- <li><a href="contact.html">Contact</a></li> -->
                                         <!-- <li><a href="news.html">News</a></li> -->
 
                                     </ul>
                                 </nav>
-                                <div class="header_phone ml-auto">Call us: 00-56 445 678 33</div>
+
 
                                 <!-- Hamburger -->
 
@@ -148,23 +166,32 @@
                 <div class="owl-carousel owl-theme home_slider">
 
                     <!-- Slide -->
-                    <!-- <div class="owl-item">
-					<div class="background_image" style="background-image:url({%static 'images/home_slider.jpg' %})"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content">
-										<div class="home_title"><h2>Let us take you away</h2></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
+                    <div class="owl-item">
+                        <div class="background_image"
+                            style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
+                        <div class="home_slider_content_container">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col">
+                                        <div class="home_slider_content">
+                                            {%if user.is_authenticated%}
+                                            <div class="home_title">
+                                                <h2>Welcome {{user.first_name}}</h2>
+                                            </div>
+                                            {%else%}
+                                            <div class="home_title">
+                                                <h2>Welcome to MCA online portal</h2>
+                                            </div>
+                                            {%endif%}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Slide -->
-                    <div class="owl-item">
+                    <!-- <div class="owl-item">
                         <div class="background_image"
                             style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
                         <div class="home_slider_content_container">
@@ -186,7 +213,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- Slide -->
                     <!-- <div class="owl-item">
@@ -208,9 +235,9 @@
 
                 <div class="home_page_nav">
                     <ul class="d-flex flex-column align-items-end justify-content-end">
-                        <li><a href="#" data-scroll-to="#destinations">Offers<span>01</span></a></li>
-                        <li><a href="#" data-scroll-to="#testimonials">Testimonials<span>02</span></a></li>
-                        <li><a href="#" data-scroll-to="#news">Latest<span>03</span></a></li>
+                        <li><a href="#" data-scroll-to="#destinations">Videos<span>01</span></a></li>
+                        <li><a href="#" data-scroll-to="#testimonials">Teacher<span>02</span></a></li>
+                        <li><a href="#" data-scroll-to="#news">Students<span>03</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -322,6 +349,17 @@
 
                             <!-- Destination -->
 
+
+
+                            <!-- Check button -->
+
+
+
+
+
+
+
+
                             <!-- Old destinations -->
                             <!-- {% for destination in dests %}
 						<div class="destination item">
@@ -364,6 +402,10 @@
             </div>
         </div>
 
+
+
+
+        <!--  -->
         <!-- Testimonials -->
 
         <div class="testimonials" id="testimonials">
