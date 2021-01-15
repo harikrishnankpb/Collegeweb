@@ -4,15 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher registration </title>
+    <title>Student register</title>
 </head>
 
 <body>
-    <form action="tregister" method="POST">
+    <form action="sregister" method="POST">
         {% csrf_token %}
         <input type="text" placeholder="Name" name="name"><br>
         <input type="email" placeholder="Email" name="email"><br>
-        <input type="text" placeholder="Qualification" name="qualification"><br>
+        <input type="text" placeholder="sem" name="sem"><br>
+        <input type="date" placeholder="Dob" name="dob"><br>
         <input type="tel" placeholder="Phone number" name="phnumber" pattern="[0-9]{10}"><br>
         <input type="text" placeholder="User name" name="username" required="required"><br>
         <input type="password" required="required" placeholder="Password" name="password1"><br>

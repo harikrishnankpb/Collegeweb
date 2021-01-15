@@ -70,7 +70,7 @@
                                             <ul style="background:transparent;size: 500px;" class="dropdown-menu"
                                                 role="menu">
                                                 &nbsp;
-                                                <li style="color: blue;"><a href="sregister.html">As a student</a></li>
+                                                <li style="color: blue;"><a href="accounts/sregister">As a student</a></li>
                                                 &nbsp;
                                                 <li style="color:white;"><a href="accounts/tregister">As a teacher</a>
                                                 </li>
@@ -176,7 +176,8 @@
                                         <div class="home_slider_content">
                                             {%if user.is_authenticated%}
                                             <div class="home_title">
-                                                <h2>Welcome {{user.first_name}}</h2>
+                                                <!-- <h2>Welcome {{user.first_name}}</h2><br> -->
+                                                {% for t in teacher %}<h2>Teacher {{t.name}}</h2>{%endfor%}
                                             </div>
                                             {%else%}
                                             <div class="home_title">
