@@ -60,8 +60,8 @@ class Video(models.Model):
 
 
 
-class Attendance(models.Model):
-    Attendance = models.DateField()
+# class Attendance(models.Model):
+#     Attendance = models.DateField()
 
 
 # class Assignment(models.Model):
