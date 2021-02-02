@@ -21,9 +21,9 @@
         <input type="submit">
     </form>
     <a href="/">Home</a>
-    {%for message in messages%}
-    {{message}}
-    {%endfor%}
+    {%for message in messages %}
+    <script>alert('{{ message }}'); </script>
+    {% endfor %}
 </body>
 
 </html>
