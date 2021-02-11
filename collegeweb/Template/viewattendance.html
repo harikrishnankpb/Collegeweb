@@ -1,0 +1,53 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Attendance</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Attendance</h1>
+    <!-- Temporarly make it as a form -->
+    {%if shows%}
+    <form action="viewattendance" method="POST">
+        {%csrf_token%}
+        <label for="subject">subject</label>
+        <select name="subject">
+            {%for sub in subjects%}
+            <option value={{sub.id}}>{{sub.name}}</option>
+            {%endfor%}
+        </select>
+        <input type="submit">
+    </form>
+    <a href="/studenthome">Home</a>
+    {%else%}
+    <table style="width:100%">
+        <tr>
+          <th>Subject name</th>
+          <th>Name</th>
+          <th>Date</th>
+          <th>File</th>
+        </tr>
+    {%for attendances in attendance%}
+    <tr>
+        <td>{{attendances.subject_name}}</td>
+        <td>{{attendances.name}}</td>
+        <td>{{attendances.date}}</td>
+        <td><a href="{{attendances.flink}}" target="_blank">{{attendances.name}}.pdf</a></td>
+    </tr>
+    {%endfor%}
+    </table> 
+    <a href="/studenthome">Home</a>
+    <a href="viewattendance">Back</a>
+    {%endif%}
+</body>
+
+</html>

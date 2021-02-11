@@ -1,0 +1,59 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table, th, td {
+          border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Referance</h1>
+    <!-- Temporarly make it as a form -->
+    {%if shows%}
+    <form action="viewreferance" method="POST">
+        {%csrf_token%}
+        <label for="subject">subject</label>
+        <select name="subject">
+            {%for sub in subjects%}
+            <option value={{sub.id}}>{{sub.name}}</option>
+            {%endfor%}
+        </select>
+        <input type="submit">
+    </form>
+    <a href="/studenthome">Home</a>
+    {%else%}
+    <table style="width:100%">
+        <tr>
+          <th>Module name</th>
+          <th>Name</th>
+          <th>Description</th> 
+          <th>Date</th>
+          <th>File</th>
+        </tr>
+    {%for referance in referances%}
+    <tr>
+        <td>{{referance.module}}</td>
+        <td>{{referance.name}}</td>
+        <td>{{referance.description}}</td>
+        <td>{{referance.date}}</td>
+        <td><a href="{{referance.flink}}" target="_blank">{{referance.name}}.pdf</a></td>
+    </tr>
+    <!-- <h2>File link: {{referance.flink}}</h2> -->
+
+    <!-- <iframe width="420" height="315" src="https://www.youtube.com/embed/{{referance.flink}}">
+    </iframe> -->
+    {%endfor%}
+    </table> 
+    <a href="/studenthome">Home</a>
+    <a href="viewreferance">Back</a>
+    {%endif%}
+</body>
+
+</html>

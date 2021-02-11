@@ -1,14 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.timezone import datetime
 # Create your models here.
 
 
-# class MyAppUser( models.Model ) :
-#     def __unicode__( self ) :
-#        return self.user.username
-#     user    = models.ForeignKey( User ,on_delete=models.CASCADE)
-#     comment = models.TextField( blank = True )
-#     isTeacher   = models.BooleanField( )
 class extendedUser(models.Model):
     user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     isTeacher=models.BooleanField(default=False)
@@ -21,7 +16,6 @@ class Teacher(models.Model):
     name=models.CharField(max_length=255,default="")
     phnumber=models.CharField(max_length=10)
     qualification=models.CharField(max_length=1000)
-    # isTeachear=models.BooleanField(default=False)
 
 
 class Student(models.Model):
@@ -29,7 +23,6 @@ class Student(models.Model):
         return self.name
     user=models.OneToOneField(User,on_delete=models.CASCADE,primary_key=True)
     name=models.CharField(max_length=255,default="")
-    # age=models.IntegerField()
     sem=models.IntegerField()
     dob=models.DateField()
     phnumber=models.CharField(max_length=10)
@@ -38,7 +31,6 @@ class Student(models.Model):
 
 
 class Subject(models.Model):
-    # subid = models.IntegerField()
     def __str__(self): 
         return self.name
     Teacher_name=models.ForeignKey(Teacher,on_delete=models.CASCADE)  # Heare we use tid as teacher_name
@@ -48,24 +40,46 @@ class Subject(models.Model):
 
 class Video(models.Model):
     subject=models.ForeignKey(Subject,on_delete=models.DO_NOTHING)
-    # sem=models.ForeignKey(Subject,on_delete=models.DO_NOTHING)
     name = models.CharField(max_length=200)
     date = models.DateField()
     description = models.CharField(max_length=2000)
     ylink = models.CharField(max_length=2000)
+    subject_name=models.CharField(max_length=2000)
+    module=models.CharField(max_length=100)
+
+class Referance(models.Model):
+    subject=models.ForeignKey(Subject,on_delete=models.DO_NOTHING)
+    name=models.CharField(max_length=200)
+    date=models.DateField()
+    description=models.CharField(max_length=2000)
+    flink=models.CharField(max_length=4000)
+    module=models.CharField(max_length=100)
+    subject_name=models.CharField(max_length=2000)
 
 
 
+class Attendance(models.Model):
+    subject=models.ForeignKey(Subject,on_delete=models.DO_NOTHING)
+    name=models.CharField(max_length=200)
+    date=models.DateField()
+    flink=models.CharField(max_length=4000)
+    subject_name=models.CharField(max_length=1000)
+    
+
+class Internal(models.Model):
+    subject=models.ForeignKey(Subject,on_delete=models.DO_NOTHING)
+    name=models.CharField(max_length=200)
+    date=models.DateField()
+    flink=models.CharField(max_length=4000)
+    subject_name=models.CharField(max_length=1000)
 
 
+class Syllabus(models.Model):
+    name=models.CharField(max_length=1000)
+    flink=models.CharField(max_length=20000)
+    year=models.CharField(max_length=2000)
+    date=models.DateField(default=datetime.today())
 
-
-# class Attendance(models.Model):
-#     Attendance = models.DateField()
-
-
-# class Assignment(models.Model):
-#     aid = models.IntegerField()
-#     flink = models.CharField(max_length=2000)
-
-
+class Gallary(models.Model):
+    name=models.CharField(max_length=1000)
+    flink=models.CharField(max_length=20000)

@@ -1,0 +1,35 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Internal</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <form action="addinternal" method="POST">
+        {%csrf_token%}
+        <label for="subject">subject</label><select name="subject">
+            {%for sub in subjects%}
+            <option value={{sub.id}}>{{sub.name}}</option>
+            <label for="subject"></label>
+            {%endfor%}
+        </select><br>
+        <label for="date">Date</label><input type="date" required name="date" id=""><br>
+        <label for="filename">File name</label><input type="text" required name="filename"><br>
+        <label for="module">Module name</label><input type="text" name="module" required><br>
+        <label for="flink">File path</label><input type="text" name="flink" required><br>
+        <input type="submit">
+    </form>
+    <a href="/teacherhome">Home</a>
+    {%for message in messages %}
+    <script>alert('{{ message }}'); </script>
+    {% endfor %}
+</body>
+
+</html>

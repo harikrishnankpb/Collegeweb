@@ -1,0 +1,37 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>videos</h1>
+    <!-- Temporarly make it as a form -->
+    {%if shows%}
+    <form action="viewvideos" method="POST">
+        {%csrf_token%}
+        <label for="subject">subject</label>
+        <select name="subject">
+            {%for sub in subjects%}
+            <option value={{sub.id}}>{{sub.name}}</option>
+            {%endfor%}
+        </select>
+        <input type="submit">
+    </form>
+    <a href="/studenthome">Home</a>
+    {%else%}
+    {%for video in videos%}
+    <iframe width="420" height="315" src="https://www.youtube.com/embed/{{video.ylink}}">
+    </iframe>
+    {%endfor%}
+    <a href="/studenthome">Home</a>
+
+    <a href="viewvideos">Back</a>
+    {%endif%}
+</body>
+
+</html>

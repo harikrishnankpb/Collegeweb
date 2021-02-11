@@ -5,11 +5,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add referance</title>
 </head>
 
 <body>
-    <form action="addvideos" method="POST">
+    <form action="addreferance" method="POST">
         {%csrf_token%}
         <label for="subject">subject</label><select name="subject">
             {%for sub in subjects%}
@@ -17,9 +17,10 @@
             {%endfor%}
         </select><br>
         <label for="date">Date</label><input type="date" name="date" id=""><br>
-        <label for="videoname">Video Name</label><input type="text" name="videoname"><br>
-        <label for="ylink">Youtube link</label><input type="text" name="ylink"><br>
+        <label for="referancename">Name</label><input type="text" name="referancename"><br>
         <label for="module">Module Name</label><input type="text" name="module"><br>
+        <label for="description">Description</label><input type="text" name="description"><br>
+        <label for="filelink">File link</label><input type="text" name="filelink"><br>
         <input type="submit">
     </form>
     <a href="/teacherhome">Home</a>

@@ -34,15 +34,36 @@
                                 <nav class="main_nav">
                                     <ul class="d-flex flex-row align-items-start justify-content-start">
 
+                                        <!-- Old main  -->
+
+                                        <!-- <li class="active"><a href="/">Home</a></li>
+									<style>
+										html {
+ 												 scroll-behavior: smooth;
+ 											  }
+									</style>
+									<li><a href="#aboutus">About us</a></li>
+									{%if user.is_authenticated%}
+									<li><a href="accounts/logout">Logout</a></li>
+									{%else%}
+									<li><a href="accounts/register">Register</a></li>
+									<li><a href="accounts/login">Login</a></li>
+									<li><a href="admin">Admin</a></li>
+                                    {%endif%} -->
+
+
                                         <!-- new main -->
 
                                         <li class="active"><a href="">Home</a></li>
-                                        <li><a href="#destinations">Gallery</a></li>
-                                        <li><a href="syllabus">Syllabus</a></li>
-                                        <li><a href="#aboutus">About us</a></li>
+                                        <!-- <li><a href="about.html">About us</a></li> -->
                                         <!-- <li><a href="#">Register</a></li> -->
                                         <!-- If User is authenticated -->
                                         {%if user.is_authenticated%}
+                                        <li><a href="accounts/viewinternal">View Internal</a></li>
+                                        <li><a href="accounts/viewattendance">View Attendance</a></li>
+                                        <li><a href="accounts/viewreferance">View Referance</a></li>
+                                        <li><a href="accounts/viewvideos">View videos</a></li>
+                                        <li><a href="about.html">About us</a></li>
                                         <li><a href="accounts/logout">Logout</a></li>
                                         {%else%}
                                         <li class="dropdown hassubmenu" style="border: 0px;outline: 0px;">
@@ -58,9 +79,10 @@
                                                 </li>
                                             </ul>
                                         </li>
-
+                                        <li><a href="about.html">About us</a></li>
                                         <li><a href="accounts/login">Login</a></li>
                                         {%endif%}
+                                        
                                         <!-- dropdown  -->
 
                                         <!-- <li><a href="contact.html">Contact</a></li> -->
@@ -97,7 +119,7 @@
 
         <div class="menu">
             <div class="menu_header d-flex flex-row align-items-center justify-content-start">
-                <div class="menu_logo"><a href="">Home</a></div>
+                <div class="menu_logo"><a href="{% static 'index.html' %}">Travello</a></div>
                 <div class="menu_close_container ml-auto">
                     <div class="menu_close">
                         <div></div>
@@ -116,18 +138,18 @@
                     <li><a href="{% static 'contact.html' %}">Contact</a></li> -->
 
                     <!-- new sub menu -->
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Syllabus</a></li>
-                    <li><a href="#aboutus">About us</a></li>
-                    <li><a href="accounts/tregister">New student</a></li>
-                    <li><a href="accounts/sregister">New Teacher</a></li>
-                    <li><a href="accounts/login">Login</a></li>
 
+                    <li class="active"><a href="index.html">Home</a></li>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Referance</a></li>
+                    <li><a href="about.html">About us</a></li>
+                    <li><a href="#">Register</a></li>
+                    <li><a href="#">Login</a></li>
 
                 </ul>
             </div>
             <div class="menu_social">
-                <div class="menu_phone ml-auto">Call us:0494 – 2407417, 2407422.</div>
+                <div class="menu_phone ml-auto">Call us: 00-56 445 678 33</div>
                 <ul class="d-flex flex-row align-items-start justify-content-start">
                     <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
                     <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
@@ -158,8 +180,9 @@
                                         <div class="home_slider_content">
                                             {%if user.is_authenticated%}
                                             <div class="home_title">
+                                                <h2>Welcome {{name}}</h2>
                                                 <!-- <h2>Welcome {{user.first_name}}</h2><br> -->
-                                                {% for t in teacher %}<h2>Teacher {{t.name}}</h2>{%endfor%}
+                                                <!-- {% for t in teacher %}<h2>Teacher {{t.name}}</h2>{%endfor%} -->
                                             </div>
                                             {%else%}
                                             <div class="home_title">
@@ -172,48 +195,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Slide -->
-                    <!-- <div class="owl-item">
-                        <div class="background_image"
-                            style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
-                        <div class="home_slider_content_container">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="home_slider_content">
-                                            {%if user.is_authenticated%}
-                                            <div class="home_title">
-                                                <h2>Welcome {{user.first_name}}</h2>
-                                            </div>
-                                            {%else%}
-                                            <div class="home_title">
-                                                <h2>Let us take you away</h2>
-                                            </div>
-                                            {%endif%}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Slide -->
-                    <!-- <div class="owl-item">
-					<div class="background_image" style="background-image:url({%static 'images/home_slider.jpg' %})"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content">
-										<div class="home_title"><h2>Let us take you away</h2></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
-
                 </div>
 
                 <div class="home_page_nav">
@@ -258,7 +239,7 @@
         <!-- Intro -->
 
         <div class="intro">
-            <!-- <div class="intro_background" style="background-image:url({%static 'images/intro.png' %})"></div> -->
+            <div class="intro_background" style="background-image:url({%static 'images/intro.png' %})"></div>
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -322,7 +303,7 @@
                     <div class="col text-center">
                         <div class="section_subtitle">simply amazing places</div>
                         <div class="section_title">
-                            <h2>Gallery</h2>
+                            <h2>Popular Destinations</h2>
                         </div>
                     </div>
                 </div>
@@ -331,28 +312,6 @@
                         <div class="destinations_container item_grid">
 
                             <!-- Destination -->
-
-                                                <!-- Destination -->
-                                                {% for gallarys in gallary %}
-                                                <div class="destination item">
-                                                    <div class="destination_image">
-                                                        <img src="{{gallarys.flink}}" alt="#">
-                                                        
-                                                        <!-- <div class="spec_offer text-center"><a href="#">{{gallarys.name}}</a></div> -->
-                                                        
-                        
-                                                    </div>
-                                                    <div class="destination_content">
-                                                        <div class="destination_title">{{gallarys.name}}</a></div>
-                                                        <!-- <div class="destination_subtitle"><p>{{destination.description}}</p></div>
-                                                        <div class="destination_price">From ${{destination.price}}</div> -->
-                                                    </div>
-                                                </div>
-                                                {%endfor%}
-                        
-                                                
-
-
 
 
 
@@ -382,7 +341,22 @@
 								<div class="destination_price">From ${{destination.price}}</div>
 							</div>
 						</div>
-                        {%endfor%} -->  
+                        {%endfor%} -->
+
+
+                            <div class="destination item">
+                                <div class="destination_image">
+                                    <img src="{% static 'images/destination_1.jpg' %}" alt="">
+                                    <div class="spec_offer text-center"><a href="#">Special Offer</a></div>
+                                </div>
+                                <div class="destination_content">
+                                    <div class="destination_title"><a href="destinations.html">Bali</a></div>
+                                    <div class="destination_subtitle">
+                                        <p>Nulla pretium tincidunt felis, nec.</p>
+                                    </div>
+                                    <div class="destination_price">From $679</div>
+                                </div>
+                            </div>
 
 
 
@@ -472,24 +446,103 @@
         <!-- News -->
 
         <div class="news" id="news">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="news_container">
 
-            <table style="width:100%">
-                <tr>
-                  <th>Year</th>
-                  <th>Name</th>
-                  <th>Date</th>
-                  <th>File</th>
-                </tr>
-            {%for syl in syllabus%}
-            <tr>
-                <td>{{syl.year}}</td>
-                <td>{{syl.name}}</td>
-                <td>{{syl.date}}</td>
-                <td><a href="{{syl.flink}}" target="_blank">{{syl.name}}.pdf</a></td>
-            </tr>
-            {%endfor%}
-            </table> 
+                            <!-- News Post -->
+                            <div
+                                class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+                                <div class="news_post_image"><img src="{% static  'images/news_1.jpg' %}" alt=""></div>
+                                <div class="news_post_content">
+                                    <div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+                                        <div>02</div>
+                                        <div>june</div>
+                                    </div>
+                                    <div class="news_post_title"><a href="#">Best tips to travel light</a></div>
+                                    <div class="news_post_category">
+                                        <ul>
+                                            <li><a href="#">lifestyle & travel</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="news_post_text">
+                                        <p>Pellentesque sit amet elementum ccumsan sit amet mattis eget, tristique at
+                                            leo. Vivamus massa.Tempor massa et laoreet.</p>
+                                    </div>
+                                </div>
+                            </div>
 
+                            <!-- News Post -->
+                            <div
+                                class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+                                <div class="news_post_image"><img src="{% static  'images/news_2.jpg' %}" alt=""></div>
+                                <div class="news_post_content">
+                                    <div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+                                        <div>01</div>
+                                        <div>june</div>
+                                    </div>
+                                    <div class="news_post_title"><a href="#">Best tips to travel light</a></div>
+                                    <div class="news_post_category">
+                                        <ul>
+                                            <li><a href="#">lifestyle & travel</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="news_post_text">
+                                        <p>Tempor massa et laoreet malesuada. Pellentesque sit amet elementum ccumsan
+                                            sit amet mattis eget, tristique at leo.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- News Post -->
+                            <div
+                                class="news_post d-flex flex-md-row flex-column align-items-start justify-content-start">
+                                <div class="news_post_image"><img src="{% static  'images/news_3.jpg' %}" alt=""></div>
+                                <div class="news_post_content">
+                                    <div class="news_post_date d-flex flex-row align-items-end justify-content-start">
+                                        <div>29</div>
+                                        <div>may</div>
+                                    </div>
+                                    <div class="news_post_title"><a href="#">Best tips to travel light</a></div>
+                                    <div class="news_post_category">
+                                        <ul>
+                                            <li><a href="#">lifestyle & travel</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="news_post_text">
+                                        <p>Vivamus massa.Tempor massa et laoreet malesuada. Aliquam nulla nisl, accumsan
+                                            sit amet mattis.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- News Sidebar -->
+                    <div class="col-xl-4">
+                        <div class="travello">
+                            <div class="background_image"
+                                style="background-image:url({%static 'images/travello.jpg' %})"></div>
+                            <div class="travello_content">
+                                <div class="travello_content_inner">
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                            <div class="travello_container">
+                                <a href="#">
+                                    <div class="d-flex flex-column align-items-center justify-content-end">
+                                        <span class="travello_title">Get a 20% Discount</span>
+                                        <span class="travello_subtitle">Buy Your Vacation Online Now</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Footer -->
@@ -502,10 +555,11 @@
                     <div class="col">
                         <div class="newsletter">
                             <div class="newsletter_title_container text-center">
-                                <div class="newsletter_title">CCSIT CU CAMPUS</div>
-                                <div class="newsletter_subtitle">Department of MCA</div>
+                                <div class="newsletter_title">Subscribe to our newsletter to get the latest trends &
+                                    news</div>
+                                <div class="newsletter_subtitle">Join our database NOW!</div>
                             </div>
-                            <!-- <div class="newsletter_form_container">
+                            <div class="newsletter_form_container">
                                 <form action="#"
                                     class="newsletter_form d-flex flex-md-row flex-column align-items-start justify-content-between"
                                     id="newsletter_form">
@@ -523,7 +577,7 @@
                                     </div>
                                     <div><button class="newsletter_button" action="submit">subscribe</button></div>
                                 </form>
-                            </div> -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -540,8 +594,8 @@
                                     <div class="footer_contact_title">give us a call</div>
                                     <div class="footer_contact_list">
                                         <ul>
-                                            <li>Office Landline: 0494 – 2407417</li>
-                                            <li>Mobile: 04942407422</li>
+                                            <li>Office Landline: +44 5567 32 664 567</li>
+                                            <li>Mobile: +44 5567 89 3322 332</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -556,7 +610,7 @@
                                     <div class="footer_contact_title">come & drop by</div>
                                     <div class="footer_contact_list">
                                         <ul style="max-width:190px">
-                                            <li>Centre for Computer Science and Information Technology, C.U.Campus</li>
+                                            <li>4124 Barnes Street, Sanford, FL 32771</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -571,8 +625,8 @@
                                     <div class="footer_contact_title">send us a message</div>
                                     <div class="footer_contact_list">
                                         <ul>
-                                            <li>ccsitcu@gmail.com</li>
-                                            <!-- <li>Office@yourbusinessname.com</li> -->
+                                            <li>youremail@gmail.com</li>
+                                            <li>Office@yourbusinessname.com</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -585,7 +639,9 @@
             <div class="col text-center">
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved  </a>
+                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+                with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="{% static 'https://colorlib.com"
+                    target="_blank">Colorlib</a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </div>
         </footer>
