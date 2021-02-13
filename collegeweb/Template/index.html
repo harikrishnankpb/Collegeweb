@@ -30,7 +30,7 @@
                     <div class="col">
                         <div class="header_content d-flex flex-row align-items-center justify-content-start">
                             <div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
-                                <div class="logo"><a href="{% static 'index.html' %}">MCA</a></div>
+                                <div class="logo"><a href="">MCA</a></div>
                                 <nav class="main_nav">
                                     <ul class="d-flex flex-row align-items-start justify-content-start">
 
@@ -38,7 +38,7 @@
 
                                         <li class="active"><a href="">Home</a></li>
                                         <li><a href="#destinations">Gallery</a></li>
-                                        <li><a href="syllabus">Syllabus</a></li>
+                                        <li><a href="#news">Syllabus</a></li>
                                         <li><a href="#aboutus">About us</a></li>
                                         <!-- <li><a href="#">Register</a></li> -->
                                         <!-- If User is authenticated -->
@@ -116,8 +116,8 @@
                     <li><a href="{% static 'contact.html' %}">Contact</a></li> -->
 
                     <!-- new sub menu -->
-                    <li><a href="#">Gallery</a></li>
-                    <li><a href="#">Syllabus</a></li>
+                    <li><a href="#gallary">Gallery</a></li>
+                    <li><a href="#news">Syllabus</a></li>
                     <li><a href="#aboutus">About us</a></li>
                     <li><a href="accounts/tregister">New student</a></li>
                     <li><a href="accounts/sregister">New Teacher</a></li>
@@ -257,62 +257,7 @@
 
         <!-- Intro -->
 
-        <div class="intro">
-            <!-- <div class="intro_background" style="background-image:url({%static 'images/intro.png' %})"></div> -->
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <div class="intro_container">
-                            <div class="row">
-
-                                <!-- Intro Item -->
-                                <div class="col-lg-4 intro_col">
-                                    <div class="intro_item d-flex flex-row align-items-end justify-content-start">
-                                        <div class="intro_icon"><img src="{% static  'images/beach.svg' %}" alt="">
-                                        </div>
-                                        <div class="intro_content">
-                                            <div class="intro_title">Top Destinations</div>
-                                            <div class="intro_subtitle">
-                                                <p>Nulla pretium tincidunt felis, nec.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Intro Item -->
-                                <div class="col-lg-4 intro_col">
-                                    <div class="intro_item d-flex flex-row align-items-end justify-content-start">
-                                        <div class="intro_icon"><img src="{% static  'images/wallet.svg' %}" alt="">
-                                        </div>
-                                        <div class="intro_content">
-                                            <div class="intro_title">The Best Prices</div>
-                                            <div class="intro_subtitle">
-                                                <p>Sollicitudin mauris lobortis in.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Intro Item -->
-                                <div class="col-lg-4 intro_col">
-                                    <div class="intro_item d-flex flex-row align-items-end justify-content-start">
-                                        <div class="intro_icon"><img src="{% static  'images/suitcase.svg' %}" alt="">
-                                        </div>
-                                        <div class="intro_content">
-                                            <div class="intro_title">Amazing Services</div>
-                                            <div class="intro_subtitle">
-                                                <p>Nulla pretium tincidunt felis, nec.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
 
         <!-- Destinations -->
 
@@ -320,13 +265,13 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <div class="section_subtitle">simply amazing places</div>
+                        <div class="section_subtitle">Department of MCA</div>
                         <div class="section_title">
                             <h2>Gallery</h2>
                         </div>
                     </div>
                 </div>
-                <div class="row destinations_row">
+                <div class="row destinations_row" id="gallary">
                     <div class="col">
                         <div class="destinations_container item_grid">
 
@@ -350,42 +295,6 @@
                                                 </div>
                                                 {%endfor%}
                         
-                                                
-
-
-
-
-
-                            <!-- Check button -->
-
-
-
-
-
-
-
-
-                            <!-- Old destinations -->
-                            <!-- {% for destination in dests %}
-						<div class="destination item">
-							<div class="destination_image">
-								<img src="{{destination.path.url}}" alt="#">
-								
-								{% if destination.soffer%}
-								<div class="spec_offer text-center"><a href="#">Special Offer</a></div>
-								{%endif%}
-
-							</div>
-							<div class="destination_content">
-								<div class="destination_title"><a href="{% static 'destinations.html' %}">{{destination.name}}</a></div>
-								<div class="destination_subtitle"><p>{{destination.description}}</p></div>
-								<div class="destination_price">From ${{destination.price}}</div>
-							</div>
-						</div>
-                        {%endfor%} -->  
-
-
-
                         </div>
                     </div>
                 </div>
@@ -404,9 +313,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
-                        <div class="section_subtitle">simply amazing places</div>
+                        <div class="section_subtitle">Department of MCA</div>
                         <div class="section_title">
-                            <h2>Testimonials</h2>
+                            <h2>MCA</h2>
                         </div>
                     </div>
                 </div>
@@ -417,6 +326,20 @@
                         <div class="testimonials_slider_container">
                             <div class="owl-carousel owl-theme testimonials_slider">
 
+
+                                <!-- Slide -->
+                                <div class="owl-item text-center">
+                                    <div class="testimonial">Appliction date of UGC net is announced</div>
+                                    <div class="testimonial_author">
+                                        <div
+                                            class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
+                                            <div>HOD <br><br> Department of MCA</div>
+                                            <div></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
                                 <!-- Slide -->
                                 <div class="owl-item text-center">
                                     <div class="testimonial">Good wibes.</div>
@@ -424,33 +347,19 @@
                                         <div
                                             class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
                                             <div>Harikrishnan</div>
-                                            <div>KP</div>
+                                            <div></div>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Slide -->
                                 <div class="owl-item text-center">
-                                    <div class="testimonial">Quets of Gandhi, THink better Learn better</div>
+                                    <div class="testimonial">Insight is postponded</div>
                                     <div class="testimonial_author">
                                         <div
                                             class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-                                            <div>john turner,</div>
-                                            <div>client</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Slide -->
-                                <div class="owl-item text-center">
-                                    <div class="testimonial">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        lobortis dolor. Cras placerat lectus a posuere aliquet. Curabitur quis vehicula
-                                        odio.</div>
-                                    <div class="testimonial_author">
-                                        <div
-                                            class="testimonial_author_content d-flex flex-row align-items-end justify-content-start">
-                                            <div>john turner,</div>
-                                            <div>client</div>
+                                            <div> HOD <br><br>Department of MCA</div>
+                                            <div></div>
                                         </div>
                                     </div>
                                 </div>

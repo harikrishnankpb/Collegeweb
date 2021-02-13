@@ -4,29 +4,87 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add referance</title>
-</head>
+
+    <head>
+
+
+        <link rel="stylesheet" type="text/css" href="{% static 'styles/addvideos.css' %}">
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
+            id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+    </head>
 
 <body>
-    <form action="addreferance" method="POST">
+    
+<div class="container-fluid">
+    <form action="addreferance" method="POST" class="register-form">
         {%csrf_token%}
-        <label for="subject">subject</label><select name="subject">
-            {%for sub in subjects%}
-            <option value={{sub.id}}>{{sub.name}}</option>
-            {%endfor%}
-        </select><br>
-        <label for="date">Date</label><input type="date" name="date" id=""><br>
-        <label for="referancename">Name</label><input type="text" name="referancename"><br>
-        <label for="module">Module Name</label><input type="text" name="module"><br>
-        <label for="description">Description</label><input type="text" name="description"><br>
-        <label for="filelink">File link</label><input type="text" name="filelink"><br>
-        <input type="submit">
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <label for="subject">Subject Name</label>
+                <select name="subject" id="" class="form-control">
+                    {%for sub in subjects%}
+                    <option value={{sub.id}}>{{sub.name}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <label for="fname">File Name</label>
+                <input name="fname" class="form-control" required type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <label for="date">Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input name="date" class="form-control" type="date">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <label for="module">Module Name</label>
+                <input name="module" class="form-control" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <label for="description">Description</label>
+                <input name="description" class="form-control" type="text">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 col-lg-4">
+                <label for="filelink">File Link</label>
+                <input name="filelink" class="form-control" required type="text">
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                <button class="regbutton" >Save</button>
+
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                <button  class="logbutton" onclick="location.href='/teacherhome'">Home</button>
+            </div>
+        </div>
     </form>
-    <a href="/teacherhome">Home</a>
-    {%for message in messages %}
-    <script>alert('{{ message }}'); </script>
-    {% endfor %}
+</div>
+
+{%for message in messages %}
+<script>alert('{{ message }}'); </script>
+{% endfor %}
+
 </body>
 
 </html>

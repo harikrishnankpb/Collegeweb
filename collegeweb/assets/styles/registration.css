@@ -1,20 +1,3 @@
-<html>
-    <head>
-    
-
-            <!-- Scripts -->
-<script>
-
-</script>
-
-
-
-
-
-
-<!-- CSS -->
-<style>
-
 @import url(https://fonts.googleapis.com/css?family=Exo:100,200,400);
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:700,400,300);
 
@@ -76,7 +59,7 @@ body{
 
 .login{
 	position: absolute;
-	top: calc(50% - 75px);
+	top: calc(50% - 130px);
 	left: calc(50% - 50px);
 	height: 150px;
 	width: 350px;
@@ -111,6 +94,50 @@ body{
 	margin-top: 10px;
 }
 
+.login input[type=tel]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: rgb(255, 255, 255);
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+
+.login input[type=date]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: rgb(255, 255, 255);
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+.login input[type=email]{
+	width: 250px;
+	height: 30px;
+	background: transparent;
+	border: 1px solid rgba(255,255,255,0.6);
+	border-radius: 2px;
+	color: rgb(255, 255, 255);
+	font-family: 'Exo', sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	padding: 4px;
+	margin-top: 10px;
+}
+
+
 .login input[type=submit]{
 	width: 260px;
 	height: 35px;
@@ -139,7 +166,22 @@ body{
 	border: 1px solid rgba(255,255,255,0.9);
 }
 
+.login input[type=date]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=tel]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
 .login input[type=password]:focus{
+	outline: none;
+	border: 1px solid rgba(255,255,255,0.9);
+}
+
+.login input[type=email]:focus{
 	outline: none;
 	border: 1px solid rgba(255,255,255,0.9);
 }
@@ -155,31 +197,3 @@ body{
 ::-moz-input-placeholder{
    color: rgba(255,255,255,0.6);
 }
-</style>
-
-
-</head>
-<body>
-
-    <div class="body"></div>
-    <div class="grad"></div>
-    <div class="header">
-        <div>MCA<span>Login</span></div>
-    </div>
-    <br>
-    <div class="login">
-        <form action="login" method="POST">
-            {%csrf_token%}
-            <input type="text" placeholder="username" name="username"><br>
-            <input type="password" placeholder="password" name="password"><br>
-            <input type="submit" value="Login">
-        </form>
-        {%for message in messages%}
-        <script>alert('{{ message }}'); </script>
-    {%endfor%}
-    <div style="text-align: justify;font-size: 20px;" >
-        <a href="/" class="button large hpbottom" style="color: ivory;">Home </a>
-    </div>
-    </div>
-</body>
-</html>

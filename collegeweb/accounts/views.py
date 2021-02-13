@@ -177,10 +177,12 @@ def addreferance(request):
         subject = request.POST['subject']
         dates = request.POST['date']
         flink = request.POST['filelink']
+        name = request.POST['fname']
+        modulename = request.POST['module']
         description = request.POST['description']
         sub=Subject.objects.filter(id=subject)
         subname=sub[0].name
-        reference = Referance(date=dates, flink=flink,
+        reference = Referance(date=dates, flink=flink,name=name,module=modulename,
                               description=description, subject_id=subject,subject_name=subname)
         reference.save()
         messages.info(request, "File saved")

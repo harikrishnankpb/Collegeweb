@@ -1,29 +1,50 @@
+{%load static%}
+<html>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teacher registration </title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Teacher register</title>
+
+
+	<!-- CSS -->
+
+
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/registration.css' %}">
+
+
 </head>
 
 <body>
-    <form action="tregister" method="POST">
-        {% csrf_token %}
-        <input type="text" placeholder="Name" name="name"><br>
-        <input type="email" placeholder="Email" name="email"><br>
-        <input type="text" placeholder="Qualification" name="qualification"><br>
-        <input type="tel" placeholder="Phone number" name="phnumber" pattern="[0-9]{10}"><br>
-        <input type="text" placeholder="User name" name="username" required="required"><br>
-        <input type="password" required="required" placeholder="Password" name="password1"><br>
-        <input type="password" placeholder=" Conform Password" name="password2"><br>
-        <input type="submit">
-    </form>
-    <a href="/">Home</a>
-    
-        {%for message in messages %}
-        <script>alert('{{ message }}'); </script>
-        {% endfor %}
+
+	<div class="body"></div>
+	<div class="grad"></div>
+	<div class="header">
+		<div>Teachers<br><span>Registration</span></div>
+	</div>
+	<br>
+	<div class="login">
+		<form autocomplete="off" action="tregister" method="POST">
+			{% csrf_token %}
+			<input type="text" placeholder="Name" name="name"><br>
+			<input type="email" placeholder="Email" name="email"><br>
+			<input type="text" placeholder="Qualification" name="qualification"><br>
+			<input type="tel" placeholder="Phone number" name="phnumber" pattern="[0-9]{10}"><br>
+			<input type="text" placeholder="User name" name="username" autocomplete="new-username" required="required"><br>
+			<input type="password" required="required" placeholder="Password" autocomplete="new-password" name="password1"><br>
+			<input type="password" placeholder=" Conform Password" autocomplete="new-password" name="password2"><br>
+			<input type="submit">
+		</form>
+		{%for message in messages %}
+		<script>alert('{{ message }}'); </script>
+		{% endfor %}
+		<div style="text-align: justify;font-size: 20px;">
+			<a href="/" class="button large hpbottom" style="color: ivory;">Home </a>
+		</div>
+	</div>
 </body>
 
 </html>

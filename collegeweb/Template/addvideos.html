@@ -4,28 +4,79 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>Add videos</title>
+
+    <head>
+
+        
+	<link rel="stylesheet" type="text/css" href="{% static 'styles/addvideos.css' %}">
+
+        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet"
+            id="bootstrap-css">
+        <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+        <!------ Include the above in your HEAD tag ---------->
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    </head>
 
 <body>
-    <form action="addvideos" method="POST">
-        {%csrf_token%}
-        <label for="subject">subject</label><select name="subject">
-            {%for sub in subjects%}
-            <option value={{sub.id}}>{{sub.name}}</option>
-            {%endfor%}
-        </select><br>
-        <label for="date">Date</label><input type="date" name="date" id=""><br>
-        <label for="videoname">Video Name</label><input type="text" name="videoname"><br>
-        <label for="ylink">Youtube link</label><input type="text" name="ylink"><br>
-        <label for="module">Module Name</label><input type="text" name="module"><br>
-        <input type="submit">
-    </form>
-    <a href="/teacherhome">Home</a>
+    <div class="container-fluid">
+        <form action="addvideos" method="POST" class="register-form">
+            {%csrf_token%}
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label for="subject">Subject Name</label>
+                    <select name="subject" id="" class="form-control">
+                        {%for sub in subjects%}
+                        <option value={{sub.id}}>{{sub.name}}</option>
+                        {%endfor%}
+                    </select>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label for="videoname">Video Name</label>
+                    <input name="videoname" class="form-control" required type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label for="date">Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                    <input name="date" class="form-control" type="date">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label for="module">Module Name</label>
+                    <input name="module" class="form-control" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-lg-4">
+                    <label for="ylink">Youtube Link</label>
+                    <input name="ylink" class="form-control" required type="text">
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                    <button class="regbutton" >Save </button>
+
+                </div>
+                <div class="col-md-6 col-sm-6 col-xs-6 col-lg-6">
+                    <button  class="logbutton" onclick="location.href='/teacherhome'">Home</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
     {%for message in messages %}
     <script>alert('{{ message }}'); </script>
     {% endfor %}
+
 </body>
 
 </html>
