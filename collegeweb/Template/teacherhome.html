@@ -30,7 +30,7 @@
                     <div class="col">
                         <div class="header_content d-flex flex-row align-items-center justify-content-start">
                             <div class="header_content_inner d-flex flex-row align-items-end justify-content-start">
-                                <div class="logo"><a href="{% static 'index.html' %}">MCA</a></div>
+                                <div class="logo"><a href="">MCA</a></div>
                                 <nav class="main_nav">
                                     <ul class="d-flex flex-row align-items-start justify-content-start">
 
@@ -55,6 +55,7 @@
                                         <!-- new main -->
 
                                         <li class="active"><a href="">Home</a></li>
+                                        <!-- <li><a href="about.html">About us</a></li> -->
                                         <!-- <li><a href="#">Register</a></li> -->
                                         <!-- If User is authenticated -->
                                         {%if user.is_authenticated%}
@@ -80,6 +81,7 @@
                                         <li><a href="#aboutus">About us</a></li>
                                         <li><a href="accounts/login">Login</a></li>
                                         {%endif%}
+                                        
                                         <!-- dropdown  -->
 
                                         <!-- <li><a href="contact.html">Contact</a></li> -->
@@ -143,7 +145,6 @@
                     <li><a href="#aboutus">About us</a></li>
                     <li><a href="accounts/logout">Logout</a></li>
 
-
                 </ul>
             </div>
             <div class="menu_social">
@@ -180,7 +181,7 @@
                                             <div class="home_title">
                                                 <h2>Welcome {{name}}</h2>
                                                 <!-- <h2>Welcome {{user.first_name}}</h2><br> -->
-                                                <!-- {% for t in teacher %}<h2>Welcome{{t.name}}</h2>{%endfor%} -->
+                                                <!-- {% for t in teacher %}<h2>Teacher {{t.name}}</h2>{%endfor%} -->
                                             </div>
                                             {%else%}
                                             <div class="home_title">
@@ -193,55 +194,13 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- Slide -->
-                    <!-- <div class="owl-item">
-                        <div class="background_image"
-                            style="background-image:url({% static 'images/home_slider.jpg' %})"></div>
-                        <div class="home_slider_content_container">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="home_slider_content">
-                                            {%if user.is_authenticated%}
-                                            <div class="home_title">
-                                                <h2>Welcome {{user.first_name}}</h2>
-                                            </div>
-                                            {%else%}
-                                            <div class="home_title">
-                                                <h2>Let us take you away</h2>
-                                            </div>
-                                            {%endif%}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
-                    <!-- Slide -->
-                    <!-- <div class="owl-item">
-					<div class="background_image" style="background-image:url({%static 'images/home_slider.jpg' %})"></div>
-					<div class="home_slider_content_container">
-						<div class="container">
-							<div class="row">
-								<div class="col">
-									<div class="home_slider_content">
-										<div class="home_title"><h2>Let us take you away</h2></div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div> -->
-
                 </div>
 
-                <div class="home_page_nav">
+               <div class="home_page_nav">
                     <ul class="d-flex flex-column align-items-end justify-content-end">
-                        <li><a href="#" data-scroll-to="#destinations">Videos<span>01</span></a></li>
-                        <li><a href="#" data-scroll-to="#testimonials">Teacher<span>02</span></a></li>
-                        <li><a href="#" data-scroll-to="#news">Students<span>03</span></a></li>
+                        <li><a href="#" data-scroll-to="">Home<span></span></a></li>
+                        <li><a href="#" data-scroll-to="#testimonials">Announcement<span>3</span></a></li>
+                        <li><a href="#" data-scroll-to="#aboutus">About us<span></span></a></li>
                     </ul>
                 </div>
             </div>
@@ -282,48 +241,7 @@
 
         <!-- Destinations -->
 
-        <div class="destinations" id="destinations">
-            <div class="container">
-                <div class="row">
-                    <div class="col text-center">
-                        <div class="section_subtitle">Department of MCA</div>
-                        <div class="section_title">
-                            <h2>Gallery</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row destinations_row" id="gallary">
-                    <div class="col">
-                        <div class="destinations_container item_grid">
-
-                            <!-- Destination -->
-
-                                                <!-- Destination -->
-                                                {% for gallarys in gallary %}
-                                                <div class="destination item">
-                                                    <div class="destination_image">
-                                                        <img src="{{gallarys.flink}}" alt="#">
-                                                        
-                                                        <!-- <div class="spec_offer text-center"><a href="#">{{gallarys.name}}</a></div> -->
-                                                        
-                        
-                                                    </div>
-                                                    <div class="destination_content">
-                                                        <div class="destination_title">{{gallarys.name}}</a></div>
-                                                        <!-- <div class="destination_subtitle"><p>{{destination.description}}</p></div>
-                                                        <div class="destination_price">From ${{destination.price}}</div> -->
-                                                    </div>
-                                                </div>
-                                                {%endfor%}
-                        
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
+        
 
         <!--  -->
         <!-- Testimonials -->
@@ -401,27 +319,7 @@
 
         <!-- News -->
 
-        <div class="news" id="news">
-
-            <table style="width:100%">
-                <tr>
-                  <th>Year</th>
-                  <th>Name</th>
-                  <th>Date</th>
-                  <th>File</th>
-                </tr>
-            {%for syl in syllabus%}
-            <tr>
-                <td>{{syl.year}}</td>
-                <td>{{syl.name}}</td>
-                <td>{{syl.date}}</td>
-                <td><a href="{{syl.flink}}" target="_blank">{{syl.name}}.pdf</a></td>
-            </tr>
-            {%endfor%}
-            </table> 
-
-        </div>
-
+        
         <!-- Footer -->
 
         <footer class="footer">

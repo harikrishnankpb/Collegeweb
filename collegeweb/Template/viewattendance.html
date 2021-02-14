@@ -4,50 +4,79 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Attendance</title>
-    <style>
-        table, th, td {
-          border: 1px solid black;
-        }
-    </style>
+    <title>viewattendance</title>
+    <link rel="stylesheet" href="{% static 'styles/tablenav.css' %}" type="text/css">
+    <script src="{% static 'js/tablenav.js' %}"></script>
+
 </head>
 
 <body>
-    <h1>Attendance</h1>
-    <!-- Temporarly make it as a form -->
+
+    <!-- Nav bar -->
+
+    <!-- USING BOOTSTRAP 3.0.3 -->
+
     {%if shows%}
-    <form action="viewattendance" method="POST">
+    <form class="selection" action="viewattendance" method="POST">
         {%csrf_token%}
-        <label for="subject">subject</label>
-        <select name="subject">
+        <label class="selectionlabel" for="subject">Subject</label>&nbsp;&nbsp;&nbsp;
+        <select name="subject" class="selectionlabel">
             {%for sub in subjects%}
             <option value={{sub.id}}>{{sub.name}}</option>
             {%endfor%}
         </select>
-        <input type="submit">
-    </form>
-    <a href="/studenthome">Home</a>
+        <br><br>
+        <br><br>
+        <input class="submitbtn" type="submit">
+    </form><br>
+    <div class="selection">
+        <button class="regbutton" onclick="window.location.href='/studenthome'">Home</button>
+    </div>
+    <!-- <div class="selection">
+        <a href="/studenthome" >Home</a>
+    </div> -->
     {%else%}
-    <table style="width:100%">
-        <tr>
-          <th>Subject name</th>
-          <th>Name</th>
-          <th>Date</th>
-          <th>File</th>
-        </tr>
-    {%for attendances in attendance%}
-    <tr>
-        <td>{{attendances.subject_name}}</td>
-        <td>{{attendances.name}}</td>
-        <td>{{attendances.date}}</td>
-        <td><a href="{{attendances.flink}}" target="_blank">{{attendances.name}}.pdf</a></td>
-    </tr>
-    {%endfor%}
-    </table> 
-    <a href="/studenthome">Home</a>
-    <a href="viewattendance">Back</a>
+
+    <section>
+        <!--for demo wrap-->
+        <div>
+            <a class="back" href="viewattendance">Back</a>
+            <a class="home" href="/studenthome">Home</a>
+        </div><br>
+        <h1>View Attendance</h1>
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>Subject name</th>
+                        <th>Name</th>
+                        <th>Date</th>
+                        <th>File</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    {%for attendances in attendance%}
+                    <tr>
+                        <td>{{attendances.subject_name}}</td>
+                        <td>{{attendances.name}}</td>
+                        <td>{{attendances.date}}</td>
+                        <td><a href="{{attendances.flink}}" target="_blank">{{attendances.name}}.pdf</a></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </section>
     {%endif%}
+
+
+
 </body>
 
 </html>

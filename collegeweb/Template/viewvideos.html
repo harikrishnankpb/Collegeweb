@@ -5,33 +5,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>View videos</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Select box css -->
+
+    <link rel="stylesheet" href="{% static 'styles/videotable.css' %}" type="text/css">
+    <script src="{% static 'js/tablenav.js' %}"></script>
 </head>
 
 <body>
-    <h1>videos</h1>
-    <!-- Temporarly make it as a form -->
+    
     {%if shows%}
-    <form action="viewvideos" method="POST">
+    <form class="selection" action="viewvideos" method="POST">
         {%csrf_token%}
-        <label for="subject">subject</label>
-        <select name="subject">
+        <label class="selectionlabel" for="subject">Subject</label>&nbsp;&nbsp;&nbsp;
+        <select name="subject" class="selectionlabel">
             {%for sub in subjects%}
             <option value={{sub.id}}>{{sub.name}}</option>
             {%endfor%}
         </select>
-        <input type="submit">
-    </form>
-    <a href="/studenthome">Home</a>
-    {%else%}
-    {%for video in videos%}
-    <iframe width="420" height="315" src="https://www.youtube.com/embed/{{video.ylink}}">
-    </iframe>
-    {%endfor%}
-    <a href="/studenthome">Home</a>
+        <br><br>
+        <br><br>
+        <input class="submitbtn" type="submit">
+    </form><br>
+    <div class="selection">
+        <button class="regbutton" onclick="window.location.href='/studenthome'">Home</button>
+    </div>
 
-    <a href="viewvideos">Back</a>
+    {%else%}
+    
+    <section>
+        <!--for demo wrap-->
+        <div>
+            <a class="btn btn-success btn-lg"  href="viewvideos">Back</a>
+            <a class="btn btn-danger btn-lg" href="/studenthome">Home</a>
+        </div><br>
+        <!-- <h1>view Videos</h1> -->
+        <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Name</th>
+                        <th>Module name</th>
+                        <th>Video</th>
+                      </tr>
+                </thead>
+            </table>
+        </div>
+        <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tbody>
+                    {%for video in videos%}
+                    <tr>
+                        <td>{{video.date}}</td>
+                        <td>{{video.name}}</td>
+                        <td>{{video.module}}</td>
+                        <td><iframe width="300" height="200" src="https://www.youtube.com/embed/{{video.ylink}}"></iframe></td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+    </section>
     {%endif%}
+
+
+
 </body>
 
 </html>
