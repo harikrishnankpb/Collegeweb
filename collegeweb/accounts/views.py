@@ -176,17 +176,17 @@ def addreferance(request):
     if request.method == 'POST':
         subject = request.POST['subject']
         dates = request.POST['date']
-        flink = request.POST['filelink']
+        filelink = request.POST['filelink']
         name = request.POST['fname']
         modulename = request.POST['module']
         description = request.POST['description']
         sub=Subject.objects.filter(id=subject)
         subname=sub[0].name
-        reference = Referance(date=dates, flink=flink,name=name,module=modulename,
+        reference = Referance(date=dates, flink=filelink,name=name,module=modulename,
                               description=description, subject_id=subject,subject_name=subname)
         reference.save()
         messages.info(request, "File saved")
-        return redirect(addvideos)
+        return redirect(addreferance)
     else:
         if request.user.is_authenticated == True:
             # current_user=request.user
