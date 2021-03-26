@@ -76,11 +76,23 @@ WSGI_APPLICATION = 'collegeweb.wsgi.application'
 
 DATABASES = {
     'default': {
+        # 'ENGINE': 'django.db.backends.postgresql',
+        # 'NAME': 'collegedb',
+        # 'USER':'postgres',
+        # 'PASSWORD':'123456',
+        # 'HOST':'localhost',
+        
+        
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'collegedb',
-        'USER':'postgres',
-        'PASSWORD':'123456',
-        'HOST':'localhost',
+        'NAME': 'd7857dajbpijnq',
+        'USER': 'mzahhfcvgmoxtb',
+        'PORT':'5432',
+        'PASSWORD':'a8b410600b3b47eea94ea26178843c1545905042bf0d1e720f09d41cc11dda27',
+        'HOST':'ec2-54-205-183-19.compute-1.amazonaws.com',
+        'URI':'postgres://mzahhfcvgmoxtb:a8b410600b3b47eea94ea26178843c1545905042bf0d1e720f09d41cc11dda27@ec2-54-205-183-19.compute-1.amazonaws.com:5432/d7857dajbpijnq'
+
+
+
     }
 }
 
